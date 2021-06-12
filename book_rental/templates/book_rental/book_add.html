@@ -1,0 +1,18 @@
+{% extends "book_rental/base.html" %}
+{% load bootstrap4 %}
+
+{% block title %}書籍の追加{% endblock title %}
+
+{% block content %}
+<h4 class="mt-4 mb-5 border-bottom">書籍の追加</h4>
+    <form action="{% url 'book_rental:book_add' %}" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form layout='horizontal' %}
+        <div class="form-group row">
+            <div class="offset-md-3 col-md-9">
+                <button type="submit" class="btn btn-primary">送信</button>
+            </div>
+        </div>
+    </form>
+    <a href="{% url 'book_rental:book_list' %}" class="btn btn-secondary btn-sm">戻る</a>
+    {% endblock content %}
